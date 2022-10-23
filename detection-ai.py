@@ -54,21 +54,22 @@ def report(y_predicted, type):
   print("\n")
   print("Classification report:")
   print(classification_report(y_test, y_predicted))
-  print("============================")
+  print("==========================\n")
 
 
-# use logistical regression
+
+# use LogisticRegression
 # https://www.w3schools.com/python/python_ml_logistic_regression.asp 
 from sklearn.linear_model import LogisticRegression
 
-logr = LogisticRegression(max_iter=200000)
-logr.fit(X_train_scaled, y_train)
-logr_predicted = logr.predict(X_test_scaled)
-report(logr_predicted, "logr")
+LRG = LogisticRegression(max_iter=200000)
+LRG.fit(X_train_scaled, y_train)
+LRG_predicted = LRG.predict(X_test_scaled)
+report(LRG_predicted, "LRG")
 
 
 
-# use random forest classifier
+# use RandomForestClassifier
 # https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html?highlight=randomforestclassifier
 from sklearn.ensemble import RandomForestClassifier
 # from sklearn.datasets import make_classification
@@ -76,7 +77,39 @@ from sklearn.ensemble import RandomForestClassifier
 # X, y = make_classification(n_samples=1000, n_features=4,
 #                            n_informative=2, n_redundant=0,
 #                            random_state=0, shuffle=False)
-clf = RandomForestClassifier() # max_depth=2, 
-clf.fit(X_train_scaled, y_train)
-RFC_predict = clf.predict(X_test_scaled)
+RFC = RandomForestClassifier() # max_depth=2, 
+RFC.fit(X_train_scaled, y_train)
+RFC_predict = RFC.predict(X_test_scaled)
 report(RFC_predict, "RFC")
+
+
+
+# use GuassianNB
+# https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html?highlight=gaussiannb
+from sklearn.naive_bayes import GaussianNB
+GNB = GaussianNB()
+GNB.fit(X_train.values, y_train)
+GNB_predict = GNB.predict(X_test.values)
+report(GNB_predict, "GNB")
+
+
+
+# use DecisionTreeClassifier
+# https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html?highlight=decisiontreeclassifier
+from sklearn.tree import DecisionTreeClassifier
+DTC = DecisionTreeClassifier()
+DTC.fit(X_train_scaled, y_train)
+DTC_predict = DTC.predict(X_test_scaled)
+report(DTC_predict, "DTC")
+
+
+
+# use KNeighborsClassifier
+# https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html?highlight=kneighborsclassifier
+from sklearn.neighbors import KNeighborsClassifier
+KNC = KNeighborsClassifier(n_neighbors=10)
+KNC.fit(X_train_scaled, y_train)
+KNC_predict = KNC.predict(X_test_scaled)
+report(KNC_predict, "KNC")
+
+
