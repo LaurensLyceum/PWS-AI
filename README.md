@@ -1,5 +1,5 @@
 # Malware detectie AI
-*Tibor van de Kreeke, Younes van Waardenburg & Lukas v.d. Linden*  
+*Tibor van de Kreeke, Younes van Waardenburg & Lukas van der Linden*  
 *Profiel Werkstuk Laurens Lyceum 2022*
 ## Info
 Deze repository bevat de code (`detection-ai.py`) en dataset (`datasets/MalwareData.csv`) die wij hebben gemaakt/gebruikt voor de pracktische opdracht van ons PWS.  
